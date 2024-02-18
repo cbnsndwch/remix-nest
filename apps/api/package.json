@@ -1,5 +1,5 @@
 {
-    "name": "@repo/api",
+    "name": "@cbnsndwch/repo-api",
     "version": "0.0.1",
     "description": "",
     "author": "",
@@ -20,6 +20,8 @@
         "test:e2e": "jest --config ./test/jest-e2e.json"
     },
     "dependencies": {
+        "@cbnsndwch/repo-contracts": "workspace:*",
+        "@cbnsndwch/repo-web": "workspace:*",
         "@nestjs/common": "^10.3.3",
         "@nestjs/config": "^3.2.0",
         "@nestjs/core": "^10.3.3",
@@ -29,6 +31,9 @@
         "@nestjs/passport": "^10.0.3",
         "@nestjs/platform-express": "^10.3.3",
         "@nestjs/swagger": "^7.3.0",
+        "@remix-run/express": "^2.6.0",
+        "@remix-run/node": "^2.6.0",
+        "chokidar": "^3.6.0",
         "class-transformer": "^0.5.1",
         "class-validator": "^0.14.1",
         "joi": "^17.12.1",
@@ -52,6 +57,7 @@
         "@types/node": "^20.11.19",
         "@types/passport": "^1.0.16",
         "@types/passport-jwt": "^4.0.1",
+        "@types/source-map-support": "^0.5.10",
         "@types/supertest": "^6.0.2",
         "@typescript-eslint/eslint-plugin": "^7.0.1",
         "@typescript-eslint/parser": "^7.0.1",

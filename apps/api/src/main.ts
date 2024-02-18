@@ -3,6 +3,7 @@ import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
 
 import { AppModule } from './app.module';
+import { mountRemixHandler } from './remix';
 import { makeTable } from './utils';
 
 const PORT = process.env.SERVER_PORT || 4003;
@@ -16,7 +17,7 @@ async function bootstrap() {
     });
 
     app.setGlobalPrefix('api');
-
+    app.disable('x-powered-by');
     app.useGlobalPipes(
         new ValidationPipe({
             transform: true,
@@ -24,7 +25,11 @@ async function bootstrap() {
         })
     );
 
+    const remixOnListen = await mountRemixHandler(app);
+
     await app.listen(PORT);
+
+    await remixOnListen();
 
     const banner = makeTable(
         {

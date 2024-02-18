@@ -1,0 +1,43 @@
+{
+    "name": "@cbnsndwch/repo-contracts",
+    "version": "0.0.1",
+    "main": "lib/index.js",
+    "typings": "lib/index.d.ts",
+    "files": [
+        "lib/**/*"
+    ],
+    "publishConfig": {
+        "access": "restricted",
+        "registry": "https://npm.pkg.github.com/"
+    },
+    "scripts": {
+        "clean": "rimraf lib && rimraf tsconfig.tsbuildinfo",
+        "prebuild": "rimraf lib",
+        "build": "tsc -b tsconfig.build.json",
+        "dev": "tsc -b tsconfig.json -w",
+        "prepublish": "yarn build --force",
+        "pub": "yarn npm publish",
+        "format": "prettier --write \"src/**/*.ts\"",
+        "lint": "eslint \"src/**/*\"",
+        "lint:fix": "eslint \"{src,test}/**/*\" --fix",
+        "test": "vitest --run --passWithNoTests --bail 1",
+        "test:watch": "vitest",
+        "test:ui": "vitest --ui --coverage.enabled=true",
+        "coverage": "vitest run --coverage"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^6.21.0",
+        "@typescript-eslint/parser": "^6.21.0",
+        "@vitejs/plugin-react": "4.2.1",
+        "@vitest/coverage-v8": "^1.2.2",
+        "@vitest/ui": "^1.2.2",
+        "eslint": "^8.56.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-import": "^2.29.1",
+        "eslint-plugin-prettier": "^5.1.3",
+        "prettier": "^3.2.5",
+        "rimraf": "5.0.5",
+        "typescript": "^5.3.3",
+        "vitest": "^1.2.2"
+    }
+}

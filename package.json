@@ -1,5 +1,5 @@
 {
-    "name": "@repo/root",
+    "name": "@cbnsndwch/repo-root",
     "license": "UNLICENSED",
     "private": true,
     "workspaces": {
@@ -45,12 +45,5 @@
         "typedoc-plugin-extras": "^3.0.0",
         "typedoc-plugin-mdn-links": "^3.1.16",
         "typescript": "~5.3.3"
-    },
-    "resolutions": {
-        "vite": "^5.1.1"
-    },
-    "nohoist": [
-        "**/@remix-run/dev"
-    ],
-    "packageManager": "yarn@4.1.0"
+    }
 }
