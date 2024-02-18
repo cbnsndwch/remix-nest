@@ -4,24 +4,26 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-		{
-			"name": "Debug API",
-			"type": "node",
-			"request": "launch",
-			"runtimeExecutable": "yarn",
-			"runtimeArgs": [
-				"debug"
-			],
-			"skipFiles": [
-				"<node_internals>/**",
-				"**/node_modules/@nestjs/**"
-			],
-			"env": {
-				"NODE_OPTIONS": "--tls-min-v1.2",
-				"LOG_LEVEL": "VERBOSE"
-			},
-			"cwd": "${workspaceRoot}",
-			"console": "integratedTerminal"
-		},
+        {
+            "name": "Debug API",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "yarn",
+            "runtimeArgs": [
+                "debug"
+            ],
+            "skipFiles": [
+                "<node_internals>/**",
+                "**/node_modules/@nestjs/**"
+            ],
+            "env": {
+                "NODE_OPTIONS": "--tls-min-v1.2",
+                "NODE_EXTRA_CA_CERTS": "./config/le-cas.pem",
+                "LOG_LEVEL": "VERBOSE",
+                "SERVER_PORT": "4003"
+            },
+            "cwd": "${workspaceRoot}/apps/api",
+            "console": "integratedTerminal"
+        },
     ]
 }
