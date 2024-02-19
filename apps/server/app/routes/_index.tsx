@@ -1,31 +1,23 @@
 import type { MetaFunction } from '@remix-run/node';
-import { Params, useLoaderData } from '@remix-run/react';
-import type { NestApplication } from '@nestjs/core';
+import { useLoaderData } from '@remix-run/react';
 
-import type { IAppService } from '@cbnsndwch/repo-contracts';
+import type { LoaderFunction } from '@cbnsndwch/remix-nest-contracts';
+
+// eslint-disable-next-line import/no-unresolved
+import type { AppService } from 'src/services';
 
 export const meta: MetaFunction = () => [{ title: 'Remix Notes' }];
 
-type LoaderArgs = {
-    request: Request;
-    params: Params;
-    context: {
-        app: NestApplication;
-        [key: string]: any;
+export const loader: LoaderFunction = async function loader({ context }) {
+    const appService = context.app.get<AppService>('AppService');
+
+    return {
+        hello: appService.getHello()
     };
 };
 
-export async function loader({ context }: LoaderArgs) {
-    const appService: IAppService = context.app.get('AppService');
-
-    return {
-        date: new Date().toISOString(),
-        hello: await appService.getHello()
-    };
-}
-
 export default function Index() {
-    const { date, hello } = useLoaderData<Awaited<typeof loader>>();
+    const { hello } = useLoaderData<Awaited<typeof loader>>();
     // const user = useOptionalUser();
 
     return (
@@ -47,13 +39,11 @@ export default function Index() {
                                     @remix-run/express + NestJS Custom Server!!!
                                 </code>
                             </p>
-                            <a href="https://remix.run">
-                                <img
-                                    src="https://user-images.githubusercontent.com/1500684/158298926-e45dafff-3544-4b69-96d6-d3bcc33fc76a.svg"
-                                    alt="Remix"
-                                    className="mx-auto mt-16 w-full max-w-[12rem] md:max-w-[16rem]"
-                                />
-                            </a>
+                            <img
+                                src="https://user-images.githubusercontent.com/1500684/158298926-e45dafff-3544-4b69-96d6-d3bcc33fc76a.svg"
+                                alt="Remix"
+                                className="mx-auto mt-16 w-full max-w-[12rem] md:max-w-[16rem]"
+                            />
                         </div>
                     </div>
                 </div>

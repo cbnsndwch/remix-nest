@@ -25,11 +25,9 @@ async function bootstrap() {
         })
     );
 
-    const remixOnListen = await mountRemixHandler(app);
+    await mountRemixHandler(app);
 
     await app.listen(PORT);
-
-    await remixOnListen();
 
     const banner = makeTable(
         {

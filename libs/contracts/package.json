@@ -1,15 +1,23 @@
 {
-    "name": "@cbnsndwch/repo-contracts",
-    "version": "0.0.1",
+    "name": "@cbnsndwch/remix-nest-contracts",
+    "version": "0..1.0",
+    "description": "Remix/Vite/NestJS custom server demo",
+    "private": true,
+    "author": {
+        "name": "Sergio Leon",
+        "url": "https://cbnsndwch.io"
+    },
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/cbnsndwch/remix-nest",
+        "directory": "libs/contracts"
+    },
     "main": "lib/index.js",
     "typings": "lib/index.d.ts",
     "files": [
         "lib/**/*"
     ],
-    "publishConfig": {
-        "access": "restricted",
-        "registry": "https://npm.pkg.github.com/"
-    },
     "scripts": {
         "clean": "rimraf lib && rimraf tsconfig.tsbuildinfo",
         "prebuild": "rimraf lib",

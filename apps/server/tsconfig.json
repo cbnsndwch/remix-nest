@@ -9,7 +9,8 @@
             "DOM.Iterable",
             "ESNext.AsyncIterable"
         ],
-        "outDir": "./dist",
+        "jsx": "react-jsx",
+        "outDir": "build",
         "baseUrl": ".",
         "esModuleInterop": true,
         "declaration": true,
@@ -24,14 +25,21 @@
         "noImplicitAny": false,
         "strictBindCallApply": false,
         "forceConsistentCasingInFileNames": false,
-        "noFallthroughCasesInSwitch": false
+        "noFallthroughCasesInSwitch": false,
+        "paths": {
+            "app/*": ["./app/*"],
+            "src/*": ["./src/*"]
+        }
     },
     "include": [
-        "src"
+        "app",
+        "src",
+        "env.d.ts"
     ],
     "exclude": [
         "node_modules",
+        "public",
         "dist",
-        "src/public"
+        "build"
     ]
 }

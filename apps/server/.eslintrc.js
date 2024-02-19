@@ -6,14 +6,17 @@ module.exports = {
         jest: true
     },
     ignorePatterns: [
-        '.eslintrc.*',
         'node_modules/**',
+        'build/**',
         'dist/**',
         'test/**',
         'e2e/**',
-        'src/public/**',
+        'public/**',
+        '.eslintrc.*',
+        'vite.config.*',
         '**/*.hbs'
     ],
+
     parser: '@typescript-eslint/parser',
     parserOptions: {
         tsconfigRootDir: __dirname,
@@ -32,6 +35,7 @@ module.exports = {
             '@typescript-eslint/parser': ['.ts']
         }
     },
+
     rules: {
         curly: ['error', 'all'],
         semi: ['error', 'always'],
@@ -96,6 +100,14 @@ module.exports = {
                     'index',
                     // Then the rest: internal and external type
                     'object'
+                ],
+                pathGroups: [
+                    // make imports from `src` their own group
+                    {
+                        pattern: 'src/**',
+                        group: 'external',
+                        position: 'after'
+                    }
                 ]
             }
         ],
@@ -110,5 +122,67 @@ module.exports = {
         '@typescript-eslint/explicit-module-boundary-types': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
         'prettier/prettier': ['error', {}, { usePrettierrc: true }]
-    }
+    },
+
+    overrides: [
+        // React
+        {
+            files: ['app/**/*.{js,jsx,ts,tsx}'],
+            plugins: ['react', 'jsx-a11y'],
+            extends: [
+                'plugin:react/recommended',
+                'plugin:react/jsx-runtime',
+                'plugin:react-hooks/recommended',
+                'plugin:jsx-a11y/recommended',
+                'prettier'
+            ],
+            settings: {
+                react: {
+                    version: 'detect'
+                },
+                formComponents: ['Form'],
+                linkComponents: [
+                    { name: 'Link', linkAttribute: 'to' },
+                    { name: 'NavLink', linkAttribute: 'to' }
+                ]
+            },
+            rules: {
+                'react/jsx-no-leaked-render': [
+                    'warn',
+                    { validStrategies: ['ternary'] }
+                ]
+            }
+        },
+
+        // Jest/Vitest
+        {
+            files: ['**/*.test.{js,jsx,ts,tsx}'],
+            plugins: ['jest', 'jest-dom', 'testing-library'],
+            extends: [
+                'plugin:jest/recommended',
+                'plugin:jest-dom/recommended',
+                'plugin:testing-library/react',
+                'prettier'
+            ],
+            env: {
+                'jest/globals': true
+            },
+            settings: {
+                jest: {
+                    // we're using vitest which has a very similar API to jest
+                    // (so the linting plugins work nicely), but it means we have to explicitly
+                    // set the jest version.
+                    version: 28
+                }
+            }
+        },
+
+        // Node
+        {
+            files: ['.eslintrc.js', '.eslintrc/vscode.js', 'remix.config.js'],
+            env: {
+                node: true
+            }
+        }
+    ]
 };

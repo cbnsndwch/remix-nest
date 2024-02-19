@@ -10,6 +10,7 @@
 /.turbo/cookies
 **/*.tsbuildinfo
 **/node_modules
+**/.cache/
 **/.pnp.*
 lib
 build
