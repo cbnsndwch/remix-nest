@@ -1,6 +1,6 @@
 {
     "name": "@cbnsndwch/remix-nest-server",
-    "version": "0..1.0",
+    "version": "0.1.0",
     "description": "Remix/Vite/NestJS custom server demo",
     "private": true,
     "author": {
