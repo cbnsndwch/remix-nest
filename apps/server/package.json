@@ -17,7 +17,6 @@
         "build": "remix build && nest build",
         "dev": "nest start --watch",
         "debug": "nodemon src/main.ts",
-        "dev:nest": "ts-node src/main.ts",
         "prod": "node dist/main",
         "format": "prettier --write src/**/*.ts",
         "lint": "eslint \"{src,app}/**/*.{ts,tsx}\" --fix",

@@ -82,3 +82,5 @@ tsconfig.tsbuildinfo
 **/.local
 changelog-temp.md
 tools/dep-version-map.json
+
+/apps/server/vite.config.mts.timestamp*

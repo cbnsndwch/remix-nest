@@ -32,7 +32,7 @@ async function bootstrap() {
     const banner = makeTable(
         {
             'Base URL': `http://127.0.0.1:${PORT}`,
-            REST: `http://127.0.0.1:${PORT}/api`
+            'Hello API': `http://127.0.0.1:${PORT}/api/hello`
         },
         `🚀 Server running 🚀`
     );
