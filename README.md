@@ -35,4 +35,4 @@ Here are some ways you can contribute to this repository:
 
 ## License
 
-This project is licensed under the [MIT license](LICENSE.md) for details.
+This project is licensed under the MIT license. See [LICENSE.md](LICENSE.md) for details.
