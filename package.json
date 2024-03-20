@@ -1,11 +1,12 @@
 {
     "name": "@cbnsndwch/remix-nest",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "Remix/Vite/NestJS custom server demo",
     "private": true,
     "author": {
         "name": "Sergio Leon",
-        "url": "https://cbnsndwch.io"
+        "email": "oss@cbnsndwch.io",
+        "url": "https://www.cbnsndwch.io"
     },
     "license": "MIT",
     "repository": {
@@ -31,9 +32,9 @@
         "test": "turbo run test",
         "manifest:version": "turbo run manifest:version",
         "deps": "node tools/dep-version-map.cjs && tools/dep-version-map.json",
-        "vmajor": "yarn workspaces foreach -v --topological-dev version major",
-        "vminor": "yarn workspaces foreach -v --topological-dev version minor",
-        "vpatch": "yarn workspaces foreach -v --topological-dev version patch",
+        "vmajor": "yarn workspaces foreach -vA --topological-dev version major",
+        "vminor": "yarn workspaces foreach -vA --topological-dev version minor",
+        "vpatch": "yarn workspaces foreach -vA --topological-dev version patch",
         "clog": "conventional-changelog -p angular -i CHANGELOG.md -o changelog-temp.md && changelog-temp.md"
     },
     "devDependencies": {
@@ -46,14 +47,15 @@
         "http-server": "^14.1.1",
         "hygen": "^6.2.11",
         "jest": "29.7.0",
-        "npm-check-updates": "^16.14.15",
+        "npm-check-updates": "^16.14.17",
         "prettier": "^3.2.5",
         "ts-jest": "^29.1.2",
         "ts-node": "^10.9.2",
-        "turbo": "^1.12.4",
-        "typedoc": "^0.25.8",
+        "turbo": "^1.12.5",
+        "typedoc": "^0.25.12",
         "typedoc-plugin-extras": "^3.0.0",
-        "typedoc-plugin-mdn-links": "^3.1.16",
-        "typescript": "~5.3.3"
-    }
+        "typedoc-plugin-mdn-links": "^3.1.18",
+        "typescript": "~5.4.2"
+    },
+    "packageManager": "yarn@4.1.1"
 }
