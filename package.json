@@ -19,6 +19,7 @@
             "libs/*"
         ]
     },
+    "bin": "./bin/rroutes",
     "scripts": {
         "clean": "turbo run clean",
         "clean:components": "turbo run clean --filter=@chathqio/portal-components...",

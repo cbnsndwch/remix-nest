@@ -1,0 +1,34 @@
+{
+    "compilerOptions": {
+        "target": "ES2022",
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        "lib": [
+            "ESNext"
+        ],
+        "strict": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
+        "declaration": true,
+        "noEmit": true,
+        "types": [
+            "vite/client",
+            "vitest/globals"
+        ]
+    },
+    "include": [
+        "src",
+        "env.d.ts",
+        "vite.config.mts"
+    ],
+    "exclude": [
+        "node_modules",
+        "lib"
+    ],
+    "references": [
+        {
+            "path": "./tsconfig.node.json"
+        }
+    ]
+}

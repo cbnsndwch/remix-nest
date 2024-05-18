@@ -1,0 +1,63 @@
+{
+    "name": "@cbnsndwch/remix-feature-routes",
+    "version": "0.2.0",
+    "description": "Generate Remix v2 routes from app features folders",
+    "license": "MIT",
+    "author": {
+        "name": "Sergio Leon",
+        "email": "oss@cbnsndwch.io",
+        "url": "https://cbnsndwch.io"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/cbnsndwch/remix-feature-routes.git"
+    },
+    "keywords": [
+        "remix",
+        "routing-convention",
+        "features",
+        "enterprise patterns",
+        "rapid application development",
+        "RAD"
+    ],
+    "sideEffects": false,
+    "scripts": {
+        "clean": "rimraf lib",
+        "build": "yarn clean && yarn typecheck && vite build",
+        "build:tsc": "yarn clean && tsc -p tscconfig.json",
+        "typecheck": "tsc -b",
+        "format": "prettier --write \"{src,app}/**/*.{ts,tsx}\"",
+        "contributors:add": "all-contributors add",
+        "contributors:generate": "all-contributors generate",
+        "prepare": "yarn typecheck && yarn build",
+        "test": "vitest"
+    },
+    "dependencies": {
+        "fs-extra": "^11.2.0",
+        "minimatch": "^9.0.3"
+    },
+    "devDependencies": {
+        "@remix-run/dev": "^2.8.1",
+        "@types/fs-extra": "^11.0.4",
+        "@types/node": "^20.11.30",
+        "all-contributors-cli": "^6.26.1",
+        "esbuild": "^0.20.2",
+        "prettier": "^3.2.5",
+        "rimraf": "5.0.5",
+        "tslib": "^2.6.2",
+        "typescript": "~5.4.2",
+        "vite": "^5.1.6",
+        "vitest": "^1.4.0"
+    },
+    "peerDependencies": {
+        "@remix-run/dev": "^2.7"
+    },
+    "files": [
+        "lib",
+        "LICENSE.md",
+        "README.md"
+    ],
+    "main": "lib/index.js",
+    "types": "src/**/*.ts",
+    "packageManager": "yarn@4.1.1"
+}
